@@ -18,20 +18,28 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * FieldMask
+ * 应用引用的共享知识库简要信息(查询时仅返回ID和名称)
  *
- * @method array getPaths() 获取<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
- * @method void setPaths(array $Paths) 设置<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+ * @method string getKbId() 获取共享知识库ID
+ * @method void setKbId(string $KbId) 设置共享知识库ID
+ * @method string getKbName() 获取共享知识库名称
+ * @method void setKbName(string $KbName) 设置共享知识库名称
  */
-class FieldMask extends AbstractModel
+class AppSharedKbInfo extends AbstractModel
 {
     /**
-     * @var array <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @var string 共享知识库ID
      */
-    public $Paths;
+    public $KbId;
 
     /**
-     * @param array $Paths <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @var string 共享知识库名称
+     */
+    public $KbName;
+
+    /**
+     * @param string $KbId 共享知识库ID
+     * @param string $KbName 共享知识库名称
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class FieldMask extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Paths",$param) and $param["Paths"] !== null) {
-            $this->Paths = $param["Paths"];
+        if (array_key_exists("KbId",$param) and $param["KbId"] !== null) {
+            $this->KbId = $param["KbId"];
+        }
+
+        if (array_key_exists("KbName",$param) and $param["KbName"] !== null) {
+            $this->KbName = $param["KbName"];
         }
     }
 }

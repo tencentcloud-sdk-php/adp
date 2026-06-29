@@ -18,20 +18,20 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * FieldMask
+ * 应用插件配置信息
  *
- * @method array getPaths() 获取<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
- * @method void setPaths(array $Paths) 设置<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+ * @method string getAppId() 获取基于发布应用创建插件的应用ID
+ * @method void setAppId(string $AppId) 设置基于发布应用创建插件的应用ID
  */
-class FieldMask extends AbstractModel
+class AppPluginConfig extends AbstractModel
 {
     /**
-     * @var array <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @var string 基于发布应用创建插件的应用ID
      */
-    public $Paths;
+    public $AppId;
 
     /**
-     * @param array $Paths <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @param string $AppId 基于发布应用创建插件的应用ID
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class FieldMask extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Paths",$param) and $param["Paths"] !== null) {
-            $this->Paths = $param["Paths"];
+        if (array_key_exists("AppId",$param) and $param["AppId"] !== null) {
+            $this->AppId = $param["AppId"];
         }
     }
 }

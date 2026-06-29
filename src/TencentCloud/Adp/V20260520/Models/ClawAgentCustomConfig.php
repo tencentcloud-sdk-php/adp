@@ -18,20 +18,20 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * FieldMask
+ * ClawAgent调用方自定义配置开关集合
  *
- * @method array getPaths() 获取<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
- * @method void setPaths(array $Paths) 设置<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+ * @method boolean getEnabled() 获取<p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
+ * @method void setEnabled(boolean $Enabled) 设置<p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
  */
-class FieldMask extends AbstractModel
+class ClawAgentCustomConfig extends AbstractModel
 {
     /**
-     * @var array <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @var boolean <p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
      */
-    public $Paths;
+    public $Enabled;
 
     /**
-     * @param array $Paths <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @param boolean $Enabled <p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class FieldMask extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Paths",$param) and $param["Paths"] !== null) {
-            $this->Paths = $param["Paths"];
+        if (array_key_exists("Enabled",$param) and $param["Enabled"] !== null) {
+            $this->Enabled = $param["Enabled"];
         }
     }
 }

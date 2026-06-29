@@ -18,20 +18,28 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * FieldMask
+ * 模型作者信息
  *
- * @method array getPaths() 获取<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
- * @method void setPaths(array $Paths) 设置<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+ * @method string getName() 获取<p>作者标识</p>
+ * @method void setName(string $Name) 设置<p>作者标识</p>
+ * @method string getAlias() 获取<p>作者显示名称</p>
+ * @method void setAlias(string $Alias) 设置<p>作者显示名称</p>
  */
-class FieldMask extends AbstractModel
+class ModelDeveloperBasic extends AbstractModel
 {
     /**
-     * @var array <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @var string <p>作者标识</p>
      */
-    public $Paths;
+    public $Name;
 
     /**
-     * @param array $Paths <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @var string <p>作者显示名称</p>
+     */
+    public $Alias;
+
+    /**
+     * @param string $Name <p>作者标识</p>
+     * @param string $Alias <p>作者显示名称</p>
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class FieldMask extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Paths",$param) and $param["Paths"] !== null) {
-            $this->Paths = $param["Paths"];
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
+        }
+
+        if (array_key_exists("Alias",$param) and $param["Alias"] !== null) {
+            $this->Alias = $param["Alias"];
         }
     }
 }

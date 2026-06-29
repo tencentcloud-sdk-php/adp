@@ -18,20 +18,20 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * FieldMask
+ * ComplexBilling
  *
- * @method array getPaths() 获取<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
- * @method void setPaths(array $Paths) 设置<p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+ * @method array getComplexList() 获取<p>复合计费列表</p>
+ * @method void setComplexList(array $ComplexList) 设置<p>复合计费列表</p>
  */
-class FieldMask extends AbstractModel
+class ComplexBilling extends AbstractModel
 {
     /**
-     * @var array <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @var array <p>复合计费列表</p>
      */
-    public $Paths;
+    public $ComplexList;
 
     /**
-     * @param array $Paths <p>参数名称</p><p>参数格式：需要获取的指定字段路径</p>
+     * @param array $ComplexList <p>复合计费列表</p>
      */
     function __construct()
     {
@@ -46,8 +46,13 @@ class FieldMask extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Paths",$param) and $param["Paths"] !== null) {
-            $this->Paths = $param["Paths"];
+        if (array_key_exists("ComplexList",$param) and $param["ComplexList"] !== null) {
+            $this->ComplexList = [];
+            foreach ($param["ComplexList"] as $key => $value){
+                $obj = new ComplexBillingItem();
+                $obj->deserialize($value);
+                array_push($this->ComplexList, $obj);
+            }
         }
     }
 }
