@@ -18,28 +18,28 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteApp请求参数结构体
+ * ClawAgent Agent团队协作配置
  *
- * @method string getAppId() 获取<p>app_id</p>
- * @method void setAppId(string $AppId) 设置<p>app_id</p>
- * @method string getReason() 获取<p>删除原因(非必填,审批时展示)</p>
- * @method void setReason(string $Reason) 设置<p>删除原因(非必填,审批时展示)</p>
+ * @method boolean getEnabled() 获取<p>是否开启Agent团队协作</p>
+ * @method void setEnabled(boolean $Enabled) 设置<p>是否开启Agent团队协作</p>
+ * @method string getPromptContent() 获取<p>prompt内容</p>
+ * @method void setPromptContent(string $PromptContent) 设置<p>prompt内容</p>
  */
-class DeleteAppRequest extends AbstractModel
+class ClawAgentAgentTeamConfig extends AbstractModel
 {
     /**
-     * @var string <p>app_id</p>
+     * @var boolean <p>是否开启Agent团队协作</p>
      */
-    public $AppId;
+    public $Enabled;
 
     /**
-     * @var string <p>删除原因(非必填,审批时展示)</p>
+     * @var string <p>prompt内容</p>
      */
-    public $Reason;
+    public $PromptContent;
 
     /**
-     * @param string $AppId <p>app_id</p>
-     * @param string $Reason <p>删除原因(非必填,审批时展示)</p>
+     * @param boolean $Enabled <p>是否开启Agent团队协作</p>
+     * @param string $PromptContent <p>prompt内容</p>
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class DeleteAppRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AppId",$param) and $param["AppId"] !== null) {
-            $this->AppId = $param["AppId"];
+        if (array_key_exists("Enabled",$param) and $param["Enabled"] !== null) {
+            $this->Enabled = $param["Enabled"];
         }
 
-        if (array_key_exists("Reason",$param) and $param["Reason"] !== null) {
-            $this->Reason = $param["Reason"];
+        if (array_key_exists("PromptContent",$param) and $param["PromptContent"] !== null) {
+            $this->PromptContent = $param["PromptContent"];
         }
     }
 }

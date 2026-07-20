@@ -18,28 +18,28 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteApp请求参数结构体
+ * 操作日志元数据
  *
- * @method string getAppId() 获取<p>app_id</p>
- * @method void setAppId(string $AppId) 设置<p>app_id</p>
- * @method string getReason() 获取<p>删除原因(非必填,审批时展示)</p>
- * @method void setReason(string $Reason) 设置<p>删除原因(非必填,审批时展示)</p>
+ * @method string getKey() 获取<p>操作日志元数据key</p>
+ * @method void setKey(string $Key) 设置<p>操作日志元数据key</p>
+ * @method string getName() 获取<p>操作日志元数据Name</p>
+ * @method void setName(string $Name) 设置<p>操作日志元数据Name</p>
  */
-class DeleteAppRequest extends AbstractModel
+class AuditLogMetaField extends AbstractModel
 {
     /**
-     * @var string <p>app_id</p>
+     * @var string <p>操作日志元数据key</p>
      */
-    public $AppId;
+    public $Key;
 
     /**
-     * @var string <p>删除原因(非必填,审批时展示)</p>
+     * @var string <p>操作日志元数据Name</p>
      */
-    public $Reason;
+    public $Name;
 
     /**
-     * @param string $AppId <p>app_id</p>
-     * @param string $Reason <p>删除原因(非必填,审批时展示)</p>
+     * @param string $Key <p>操作日志元数据key</p>
+     * @param string $Name <p>操作日志元数据Name</p>
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class DeleteAppRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AppId",$param) and $param["AppId"] !== null) {
-            $this->AppId = $param["AppId"];
+        if (array_key_exists("Key",$param) and $param["Key"] !== null) {
+            $this->Key = $param["Key"];
         }
 
-        if (array_key_exists("Reason",$param) and $param["Reason"] !== null) {
-            $this->Reason = $param["Reason"];
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
         }
     }
 }

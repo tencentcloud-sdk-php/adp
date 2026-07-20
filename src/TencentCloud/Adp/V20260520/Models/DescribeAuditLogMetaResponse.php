@@ -18,19 +18,26 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeApp返回参数结构体
+ * DescribeAuditLogMeta返回参数结构体
  *
- * @method App getApp() 获取<p>应用详情</p>
- * @method void setApp(App $App) 设置<p>应用详情</p>
+ * @method array getActions() 获取<p>操作类型列表</p>
+ * @method void setActions(array $Actions) 设置<p>操作类型列表</p>
+ * @method array getBizObjects() 获取<p>操作对象列表</p>
+ * @method void setBizObjects(array $BizObjects) 设置<p>操作对象列表</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeAppResponse extends AbstractModel
+class DescribeAuditLogMetaResponse extends AbstractModel
 {
     /**
-     * @var App <p>应用详情</p>
+     * @var array <p>操作类型列表</p>
      */
-    public $App;
+    public $Actions;
+
+    /**
+     * @var array <p>操作对象列表</p>
+     */
+    public $BizObjects;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class DescribeAppResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param App $App <p>应用详情</p>
+     * @param array $Actions <p>操作类型列表</p>
+     * @param array $BizObjects <p>操作对象列表</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,9 +62,22 @@ class DescribeAppResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("App",$param) and $param["App"] !== null) {
-            $this->App = new App();
-            $this->App->deserialize($param["App"]);
+        if (array_key_exists("Actions",$param) and $param["Actions"] !== null) {
+            $this->Actions = [];
+            foreach ($param["Actions"] as $key => $value){
+                $obj = new AuditLogMetaField();
+                $obj->deserialize($value);
+                array_push($this->Actions, $obj);
+            }
+        }
+
+        if (array_key_exists("BizObjects",$param) and $param["BizObjects"] !== null) {
+            $this->BizObjects = [];
+            foreach ($param["BizObjects"] as $key => $value){
+                $obj = new AuditLogMetaField();
+                $obj->deserialize($value);
+                array_push($this->BizObjects, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

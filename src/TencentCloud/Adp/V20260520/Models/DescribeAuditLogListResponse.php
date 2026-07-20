@@ -18,19 +18,26 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeApp返回参数结构体
+ * DescribeAuditLogList返回参数结构体
  *
- * @method App getApp() 获取<p>应用详情</p>
- * @method void setApp(App $App) 设置<p>应用详情</p>
+ * @method array getAuditLogList() 获取<p>操作日志列表</p>
+ * @method void setAuditLogList(array $AuditLogList) 设置<p>操作日志列表</p>
+ * @method array getSearchAfter() 获取<p>es查询起始位置</p><p>用于入参查询下一页</p>
+ * @method void setSearchAfter(array $SearchAfter) 设置<p>es查询起始位置</p><p>用于入参查询下一页</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeAppResponse extends AbstractModel
+class DescribeAuditLogListResponse extends AbstractModel
 {
     /**
-     * @var App <p>应用详情</p>
+     * @var array <p>操作日志列表</p>
      */
-    public $App;
+    public $AuditLogList;
+
+    /**
+     * @var array <p>es查询起始位置</p><p>用于入参查询下一页</p>
+     */
+    public $SearchAfter;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class DescribeAppResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param App $App <p>应用详情</p>
+     * @param array $AuditLogList <p>操作日志列表</p>
+     * @param array $SearchAfter <p>es查询起始位置</p><p>用于入参查询下一页</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,9 +62,17 @@ class DescribeAppResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("App",$param) and $param["App"] !== null) {
-            $this->App = new App();
-            $this->App->deserialize($param["App"]);
+        if (array_key_exists("AuditLogList",$param) and $param["AuditLogList"] !== null) {
+            $this->AuditLogList = [];
+            foreach ($param["AuditLogList"] as $key => $value){
+                $obj = new AuditLog();
+                $obj->deserialize($value);
+                array_push($this->AuditLogList, $obj);
+            }
+        }
+
+        if (array_key_exists("SearchAfter",$param) and $param["SearchAfter"] !== null) {
+            $this->SearchAfter = $param["SearchAfter"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
