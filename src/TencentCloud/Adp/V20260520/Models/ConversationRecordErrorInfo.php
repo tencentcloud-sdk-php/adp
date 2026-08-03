@@ -18,28 +18,28 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * TimerConfig
+ * 单次对话失败信息
  *
- * @method TimerPushConfig getPushConfig() 获取推送配置
- * @method void setPushConfig(TimerPushConfig $PushConfig) 设置推送配置
- * @method TimerScheduleConfig getSchedule() 获取定时配置
- * @method void setSchedule(TimerScheduleConfig $Schedule) 设置定时配置
+ * @method string getCode() 获取<p>对话失败错误码</p>
+ * @method void setCode(string $Code) 设置<p>对话失败错误码</p>
+ * @method string getMessage() 获取<p>对话失败错误信息</p>
+ * @method void setMessage(string $Message) 设置<p>对话失败错误信息</p>
  */
-class TimerConfig extends AbstractModel
+class ConversationRecordErrorInfo extends AbstractModel
 {
     /**
-     * @var TimerPushConfig 推送配置
+     * @var string <p>对话失败错误码</p>
      */
-    public $PushConfig;
+    public $Code;
 
     /**
-     * @var TimerScheduleConfig 定时配置
+     * @var string <p>对话失败错误信息</p>
      */
-    public $Schedule;
+    public $Message;
 
     /**
-     * @param TimerPushConfig $PushConfig 推送配置
-     * @param TimerScheduleConfig $Schedule 定时配置
+     * @param string $Code <p>对话失败错误码</p>
+     * @param string $Message <p>对话失败错误信息</p>
      */
     function __construct()
     {
@@ -54,14 +54,12 @@ class TimerConfig extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PushConfig",$param) and $param["PushConfig"] !== null) {
-            $this->PushConfig = new TimerPushConfig();
-            $this->PushConfig->deserialize($param["PushConfig"]);
+        if (array_key_exists("Code",$param) and $param["Code"] !== null) {
+            $this->Code = $param["Code"];
         }
 
-        if (array_key_exists("Schedule",$param) and $param["Schedule"] !== null) {
-            $this->Schedule = new TimerScheduleConfig();
-            $this->Schedule->deserialize($param["Schedule"]);
+        if (array_key_exists("Message",$param) and $param["Message"] !== null) {
+            $this->Message = $param["Message"];
         }
     }
 }
