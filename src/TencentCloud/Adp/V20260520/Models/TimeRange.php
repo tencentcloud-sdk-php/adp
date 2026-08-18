@@ -18,20 +18,28 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ClawAgent调用方自定义配置开关集合
+ * 查询时间范围（Unix 秒）
  *
- * @method boolean getEnabled() 获取<p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
- * @method void setEnabled(boolean $Enabled) 设置<p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
+ * @method string getEndTime() 获取<p>结束时间，Unix 秒</p>
+ * @method void setEndTime(string $EndTime) 设置<p>结束时间，Unix 秒</p>
+ * @method string getStartTime() 获取<p>开始时间，Unix 秒</p>
+ * @method void setStartTime(string $StartTime) 设置<p>开始时间，Unix 秒</p>
  */
-class ClawAgentCustomConfig extends AbstractModel
+class TimeRange extends AbstractModel
 {
     /**
-     * @var boolean <p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
+     * @var string <p>结束时间，Unix 秒</p>
      */
-    public $Enabled;
+    public $EndTime;
 
     /**
-     * @param boolean $Enabled <p>是否允许C端用户在对话时动态传入自定义Agent配置</p>
+     * @var string <p>开始时间，Unix 秒</p>
+     */
+    public $StartTime;
+
+    /**
+     * @param string $EndTime <p>结束时间，Unix 秒</p>
+     * @param string $StartTime <p>开始时间，Unix 秒</p>
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class ClawAgentCustomConfig extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Enabled",$param) and $param["Enabled"] !== null) {
-            $this->Enabled = $param["Enabled"];
+        if (array_key_exists("EndTime",$param) and $param["EndTime"] !== null) {
+            $this->EndTime = $param["EndTime"];
+        }
+
+        if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
+            $this->StartTime = $param["StartTime"];
         }
     }
 }
