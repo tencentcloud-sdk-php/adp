@@ -18,28 +18,16 @@ namespace TencentCloud\Adp\V20260520\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 通用操作人信息
+ * DescribeResourceSummary请求参数结构体
  *
- * @method string getUserId() 获取用户 ID
- * @method void setUserId(string $UserId) 设置用户 ID
- * @method string getUserName() 获取用户姓名
- * @method void setUserName(string $UserName) 设置用户姓名
+
  */
-class Operator extends AbstractModel
+class DescribeResourceSummaryRequest extends AbstractModel
 {
-    /**
-     * @var string 用户 ID
-     */
-    public $UserId;
+
 
     /**
-     * @var string 用户姓名
-     */
-    public $UserName;
 
-    /**
-     * @param string $UserId 用户 ID
-     * @param string $UserName 用户姓名
      */
     function __construct()
     {
@@ -54,12 +42,6 @@ class Operator extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
-            $this->UserId = $param["UserId"];
-        }
 
-        if (array_key_exists("UserName",$param) and $param["UserName"] !== null) {
-            $this->UserName = $param["UserName"];
-        }
     }
 }
